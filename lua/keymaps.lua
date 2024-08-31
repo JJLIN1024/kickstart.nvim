@@ -6,9 +6,7 @@
 ---
 ------------------------------------------------------------------------------
 -- netrw: file browser 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
-
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 -- better search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 

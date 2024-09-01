@@ -7,12 +7,12 @@ return {
     -- REQUIRED
     harpoon:setup()
 
-    vim.keymap.set('n', '<leader>H', function()
+    vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():add()
-    end)
-    vim.keymap.set('n', '<leader>h', function()
+    end, { desc = 'Add current file to harpoon list' })
+    vim.keymap.set('n', '<leader>hl', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end)
+    end, { desc = 'List harpoon files' })
 
     -- basic telescope configuration
     local conf = require('telescope.config').values
@@ -34,8 +34,8 @@ return {
         :find()
     end
 
-    vim.keymap.set('n', '<C-e>', function()
+    vim.keymap.set('n', '<leader>ht', function()
       toggle_telescope(harpoon:list())
-    end, { desc = 'Open harpoon window' })
+    end, { desc = 'Open harpoon with telescope' })
   end,
 }

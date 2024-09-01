@@ -6,7 +6,7 @@
 ---
 ------------------------------------------------------------------------------
 -- netrw: file browser 
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = 'File Explorer' })
 -- better search
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -38,17 +38,22 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
--- greatest remap ever, paste things without putting the delete text in the delete buffer
+-- greatest remap ever
+-- Let me explain, this remap while in visiual mode
+-- will delete what is currently highlighted and replace it 
+-- with what is in the register BUT it will YANK (delete) it 
+-- to a VOID register. Meaning I still have what I originally had
+-- when I pasted. I don't loose the previous thing I YANKED!hings without putting the delete text in the delete buffer
 vim.keymap.set('x', '<leader>p', [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
-vim.keymap.set('n', '<leader>Y', [["+Y]])
-
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
+-- vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = ' Yank '} )
+-- vim.keymap.set('n', '<leader>Y', [["+Y]])
+--
+-- vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
 -- search and replace
-vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and Replace' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

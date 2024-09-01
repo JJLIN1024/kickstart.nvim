@@ -86,9 +86,12 @@ return {
       vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>fc', builtin.command_history, { desc = '[S]earch Recent Commands' })
+      vim.keymap.set('n', '<leader>fj', builtin.jumplist, { desc = '[S]earch Jump List' })
+      vim.keymap.set('n', '<leader>ft', builtin.treesitter, { desc = '[S]earch treesitter' })
       
       local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
-      vim.keymap.set("n", "<leader>fW", live_grep_args_shortcuts.grep_word_under_cursor)
+      vim.keymap.set("n", "<leader>fW", live_grep_args_shortcuts.grep_word_under_cursor, { desc = '[S]earch current [W]ord with args' })
     end,
   },
 }
